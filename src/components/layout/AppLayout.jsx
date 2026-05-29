@@ -37,6 +37,14 @@ export default function AppLayout() {
           >
             Encuadernación Artesanal
           </a>
+          <a
+            href="https://box-craft-logic.base44.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs px-3 py-1.5 rounded-full border border-border hover:border-primary/40 hover:text-primary transition-colors"
+          >
+            Caja libro Facil
+          </a>
         </div>
       </footer>
     </div>
