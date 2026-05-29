@@ -45,12 +45,12 @@ export default function ToolsList() {
             </div>
           ))}
         </div>
+      ) : category === "orden" ? (
+        <OrdenView />
       ) : filtered.length === 0 ? (
         <div className="text-center py-12">
           <p className="text-muted-foreground">No hay herramientas en esta categoría aún.</p>
         </div>
-      ) : category === "orden" ? (
-        <OrdenView />
       ) : category === "sewing" ? (
         <SewingView tools={filtered} />
       ) : (
