@@ -10,7 +10,8 @@ export default function AppLayout() {
         <Outlet />
       </main>
       <footer className="border-t border-border mt-12 py-8 text-center text-sm text-muted-foreground">
-        <p className="mb-4">EncuaTaller — Herramientas de encuadernación accesibles para todos</p>
+        <p className="mb-2">EncuaTaller — Construye tus herramientas de encuadernación con guías accesibles, costos reales y alternativas DIY</p>
+        <p className="mb-4 text-xs text-muted-foreground/60 italic">Dedicado a mi ahijada querida a quien le gusta encuadernar.</p>
         <div className="flex flex-wrap justify-center gap-3">
           <span className="text-xs text-muted-foreground/60 self-center">Más apps:</span>
           <a
