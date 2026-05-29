@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BookOpen, Home, Wrench, Info } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function AppHeader() {
   const location = useLocation();
@@ -23,6 +24,8 @@ export default function AppHeader() {
           </span>
         </Link>
 
+        <div className="flex items-center gap-1">
+        <ThemeToggle />
         <nav aria-label="Navegación principal">
           <ul className="flex items-center gap-1" role="list">
             {links.map((link) => {
@@ -48,6 +51,7 @@ export default function AppHeader() {
             })}
           </ul>
         </nav>
+        </div>
       </div>
     </header>
   );
