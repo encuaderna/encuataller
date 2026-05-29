@@ -29,6 +29,14 @@ export default function AppLayout() {
           >
             ImposSimple
           </a>
+          <a
+            href="https://bind-craft-calm.base44.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs px-3 py-1.5 rounded-full border border-border hover:border-primary/40 hover:text-primary transition-colors"
+          >
+            Encuadernación Artesanal
+          </a>
         </div>
       </footer>
     </div>
