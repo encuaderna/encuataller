@@ -9,7 +9,7 @@ const categoryMap = {
   gluing: { icon: Droplets, label: "Pegado" },
   measuring: { icon: Ruler, label: "Medición" },
   finishing: { icon: Sparkles, label: "Acabado" },
-  template: { icon: BookOpen, label: "Plantillas de costura" },
+
 };
 
 export default function CategoryIcon({ category, showLabel = false, size = "md" }) {
