@@ -5,7 +5,7 @@ import { categoryMap } from "./CategoryIcon";
 const allCategories = [
   { key: "all", label: "Todas" },
   ...Object.entries(categoryMap)
-    .filter(([key]) => key !== "template")
+    .filter(([key]) => key !== "template" && key !== "finishing")
     .map(([key, val]) => ({ key, label: val.label })),
 ];
 
