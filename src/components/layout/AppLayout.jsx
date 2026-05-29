@@ -21,6 +21,14 @@ export default function AppLayout() {
           >
             Encuaderna
           </a>
+          <a
+            href="https://print-masked-flow-pro.base44.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs px-3 py-1.5 rounded-full border border-border hover:border-primary/40 hover:text-primary transition-colors"
+          >
+            ImposSimple
+          </a>
         </div>
       </footer>
     </div>
