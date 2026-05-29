@@ -18,6 +18,8 @@ export default function ToolDetail() {
   const path = window.location.pathname;
   const toolId = path.split("/").pop();
 
+  const { currency } = useCurrency();
+
   const { data: tools = [], isLoading } = useQuery({
     queryKey: ["tool", toolId],
     queryFn: () => base44.entities.Tool.filter({ id: toolId }),
@@ -47,7 +49,6 @@ export default function ToolDetail() {
     );
   }
 
-  const { currency } = useCurrency();
   const categoryLabel = categoryMap[tool.category]?.label || tool.category;
   const convertedCost = convertCost(tool?.estimated_cost, currency);
 
