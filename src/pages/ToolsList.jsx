@@ -6,6 +6,7 @@ import ToolCard from "@/components/tools/ToolCard";
 import CategoryFilter from "@/components/tools/CategoryFilter";
 import CurrencySelector from "@/components/tools/CurrencySelector";
 import SewingView from "@/components/tools/SewingView";
+import OrdenView from "@/components/tools/OrdenView";
 
 export default function ToolsList() {
   const [category, setCategory] = useState("all");
@@ -48,6 +49,8 @@ export default function ToolsList() {
         <div className="text-center py-12">
           <p className="text-muted-foreground">No hay herramientas en esta categoría aún.</p>
         </div>
+      ) : category === "orden" ? (
+        <OrdenView />
       ) : category === "sewing" ? (
         <SewingView tools={filtered} />
       ) : (

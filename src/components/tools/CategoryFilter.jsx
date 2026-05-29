@@ -7,6 +7,7 @@ const allCategories = [
   ...Object.entries(categoryMap)
     .filter(([key]) => key !== "template" && key !== "finishing")
     .map(([key, val]) => ({ key, label: val.label })),
+  { key: "orden", label: "Orden" },
 ];
 
 export default function CategoryFilter({ selected, onSelect }) {
