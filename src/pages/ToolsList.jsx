@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
 import ToolCard from "@/components/tools/ToolCard";
 import CategoryFilter from "@/components/tools/CategoryFilter";
+import CurrencySelector from "@/components/tools/CurrencySelector";
 
 export default function ToolsList() {
   const [category, setCategory] = useState("all");
@@ -19,11 +20,14 @@ export default function ToolsList() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-foreground mb-1">Herramientas</h1>
-        <p className="text-sm text-muted-foreground">
-          {tools.length} herramientas disponibles para construir
-        </p>
+      <div className="flex items-start justify-between gap-4 flex-wrap">
+        <div>
+          <h1 className="text-2xl font-bold text-foreground mb-1">Herramientas</h1>
+          <p className="text-sm text-muted-foreground">
+            {tools.length} herramientas disponibles para construir
+          </p>
+        </div>
+        <CurrencySelector />
       </div>
 
       <CategoryFilter selected={category} onSelect={setCategory} />

@@ -4,9 +4,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Clock, DollarSign, ChevronRight } from "lucide-react";
 import DifficultyBadge from "./DifficultyBadge";
 import CategoryIcon, { categoryMap } from "./CategoryIcon";
+import { useCurrency, convertCost } from "@/hooks/useCurrency";
 
 export default function ToolCard({ tool }) {
   const categoryLabel = categoryMap[tool.category]?.label || tool.category;
+  const { currency } = useCurrency();
+  const convertedCost = convertCost(tool.estimated_cost, currency);
 
   return (
     <Link
@@ -37,10 +40,10 @@ export default function ToolCard({ tool }) {
 
           <div className="flex items-center gap-4 flex-wrap">
             <DifficultyBadge difficulty={tool.difficulty} />
-            {tool.estimated_cost && (
-              <span className="flex items-center gap-1 text-xs text-muted-foreground" aria-label={`Coste estimado: ${tool.estimated_cost}`}>
+            {convertedCost && (
+              <span className="flex items-center gap-1 text-xs text-muted-foreground" aria-label={`Coste estimado: ${convertedCost}`}>
                 <DollarSign className="w-3.5 h-3.5" aria-hidden="true" />
-                {tool.estimated_cost}
+                {convertedCost}
               </span>
             )}
             {tool.build_time && (

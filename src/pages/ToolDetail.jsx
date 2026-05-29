@@ -10,6 +10,8 @@ import CategoryIcon, { categoryMap } from "@/components/tools/CategoryIcon";
 import MaterialsList from "@/components/tools/MaterialsList";
 import StepList from "@/components/tools/StepList";
 import CommonErrors from "@/components/tools/CommonErrors";
+import CurrencySelector from "@/components/tools/CurrencySelector";
+import { useCurrency, convertCost } from "@/hooks/useCurrency";
 
 export default function ToolDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -45,7 +47,9 @@ export default function ToolDetail() {
     );
   }
 
+  const { currency } = useCurrency();
   const categoryLabel = categoryMap[tool.category]?.label || tool.category;
+  const convertedCost = convertCost(tool?.estimated_cost, currency);
 
   return (
     <div className="space-y-8">
@@ -70,10 +74,10 @@ export default function ToolDetail() {
         {/* Meta info */}
         <div className="flex items-center gap-4 flex-wrap">
           <DifficultyBadge difficulty={tool.difficulty} />
-          {tool.estimated_cost && (
+          {convertedCost && (
             <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
               <DollarSign className="w-4 h-4" aria-hidden="true" />
-              <span aria-label={`Coste estimado: ${tool.estimated_cost}`}>{tool.estimated_cost}</span>
+              <span aria-label={`Coste estimado: ${convertedCost}`}>{convertedCost}</span>
             </span>
           )}
           {tool.build_time && (
@@ -82,6 +86,7 @@ export default function ToolDetail() {
               <span aria-label={`Tiempo estimado: ${tool.build_time}`}>{tool.build_time}</span>
             </span>
           )}
+          <CurrencySelector />
         </div>
       </div>
 
