@@ -96,6 +96,41 @@
   border-radius: 4px;
 }
 
+/* Accessibility: leading-loose applied via JS class */
+html.leading-loose body * {
+  line-height: 1.9 !important;
+  letter-spacing: 0.03em;
+}
+
+/* Accessibility: high contrast */
+html.high-contrast {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --primary: 220 90% 30%;
+  --primary-foreground: 0 0% 100%;
+  --muted-foreground: 0 0% 20%;
+  --border: 0 0% 20%;
+}
+html.dark.high-contrast {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 100%;
+  --primary: 174 100% 60%;
+  --primary-foreground: 0 0% 0%;
+  --muted-foreground: 0 0% 80%;
+  --border: 0 0% 70%;
+}
+
+/* Accessibility: reduce motion via JS class */
+html.motion-reduce *, html.motion-reduce *::before, html.motion-reduce *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

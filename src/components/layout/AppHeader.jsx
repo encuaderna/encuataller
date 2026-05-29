@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BookOpen, Home, Wrench, Info } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import AccessibilityMenu from "./AccessibilityMenu";
 
 export default function AppHeader() {
   const location = useLocation();
@@ -25,6 +26,7 @@ export default function AppHeader() {
         </Link>
 
         <div className="flex items-center gap-1">
+        <AccessibilityMenu />
         <ThemeToggle />
         <nav aria-label="Navegación principal">
           <ul className="flex items-center gap-1" role="list">
