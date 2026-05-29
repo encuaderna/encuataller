@@ -6,7 +6,7 @@ const STARTER_KIT = [
   {
     id: "punzon",
     name: "Punzón",
-    description: "Para perforar las signaturas antes de coser.",
+    description: "Para perforar los cuadernillos antes de coser.",
     cost: "$0–1",
     diy: "Corcho de botella + clavo grueso. 10 minutos.",
     diyLink: null,
@@ -23,7 +23,7 @@ const STARTER_KIT = [
   {
     id: "hilo",
     name: "Hilo encerado o hilo resistente",
-    description: "Para coser las signaturas. Debe ser resistente y no elástico.",
+    description: "Para coser los cuadernillos. Debe ser resistente y no elástico.",
     cost: "$2–5",
     diy: "Hilo de lino encerado es lo ideal. En su defecto, hilo de pescar fino (0.3mm) o hilo dental sin sabor.",
     essential: true,
@@ -78,7 +78,7 @@ const STARTER_KIT = [
   },
   {
     id: "papel",
-    name: "Papel para signaturas",
+    name: "Papel para cuadernillos",
     description: "Hojas de texto del libro, dobladas en cuadernillos.",
     cost: "$1–5",
     diy: "Papel bond 75–90g es ideal para empezar. Evita papel muy fino (se transparenta) o muy grueso (no dobla bien).",
