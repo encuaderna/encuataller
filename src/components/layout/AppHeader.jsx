@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BookOpen, Home, Wrench, Info } from "lucide-react";
+import { BookOpen, Home, Wrench, Info, Rocket } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import AccessibilityMenu from "./AccessibilityMenu";
 
@@ -10,6 +10,7 @@ export default function AppHeader() {
   const links = [
     { to: "/", label: "Inicio", icon: Home },
     { to: "/tools", label: "Herramientas", icon: Wrench },
+    { to: "/starter", label: "Comenzar", icon: Rocket },
     { to: "/about", label: "Acerca de", icon: Info },
   ];
 
@@ -26,33 +27,33 @@ export default function AppHeader() {
         </Link>
 
         <div className="flex items-center gap-1">
-        <AccessibilityMenu />
-        <ThemeToggle />
-        <nav aria-label="Navegación principal">
-          <ul className="flex items-center gap-1" role="list">
-            {links.map((link) => {
-              const isActive = location.pathname === link.to || 
-                (link.to !== "/" && location.pathname.startsWith(link.to));
-              const Icon = link.icon;
-              return (
-                <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      isActive
-                        ? "bg-accent text-accent-foreground"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                    }`}
-                    aria-current={isActive ? "page" : undefined}
-                  >
-                    <Icon className="w-4 h-4" aria-hidden="true" />
-                    <span className="hidden sm:inline">{link.label}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+          <AccessibilityMenu />
+          <ThemeToggle />
+          <nav aria-label="Navegación principal">
+            <ul className="flex items-center gap-1" role="list">
+              {links.map((link) => {
+                const isActive = location.pathname === link.to ||
+                  (link.to !== "/" && location.pathname.startsWith(link.to));
+                const Icon = link.icon;
+                return (
+                  <li key={link.to}>
+                    <Link
+                      to={link.to}
+                      className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        isActive
+                          ? "bg-accent text-accent-foreground"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      }`}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      <Icon className="w-4 h-4" aria-hidden="true" />
+                      <span className="hidden sm:inline">{link.label}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
         </div>
       </div>
     </header>

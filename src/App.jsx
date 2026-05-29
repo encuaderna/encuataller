@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import ToolsList from './pages/ToolsList';
 import ToolDetail from './pages/ToolDetail';
 import About from './pages/About';
+import Starter from './pages/Starter';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -44,6 +45,7 @@ const AuthenticatedApp = () => {
         <Route path="/tools" element={<ToolsList />} />
         <Route path="/tools/:id" element={<ToolDetail />} />
         <Route path="/about" element={<About />} />
+        <Route path="/starter" element={<Starter />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
