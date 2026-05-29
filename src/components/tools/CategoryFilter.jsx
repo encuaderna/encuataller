@@ -4,7 +4,9 @@ import { categoryMap } from "./CategoryIcon";
 
 const allCategories = [
   { key: "all", label: "Todas" },
-  ...Object.entries(categoryMap).map(([key, val]) => ({ key, label: val.label })),
+  ...Object.entries(categoryMap)
+    .filter(([key]) => key !== "template")
+    .map(([key, val]) => ({ key, label: val.label })),
 ];
 
 export default function CategoryFilter({ selected, onSelect }) {
