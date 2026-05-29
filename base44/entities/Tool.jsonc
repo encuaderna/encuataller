@@ -1,0 +1,97 @@
+{
+  "name": "Tool",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the bookbinding tool"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of what the tool does"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "cutting",
+        "folding",
+        "sewing",
+        "pressing",
+        "gluing",
+        "measuring",
+        "finishing"
+      ],
+      "description": "Tool category"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "default": "easy",
+      "description": "Difficulty level to build"
+    },
+    "estimated_cost": {
+      "type": "string",
+      "description": "Estimated cost range (e.g. $5-10)"
+    },
+    "build_time": {
+      "type": "string",
+      "description": "Estimated time to build (e.g. 30 min)"
+    },
+    "materials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "List of materials needed"
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "order": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "instruction": {
+            "type": "string"
+          },
+          "tip": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Step-by-step build instructions"
+    },
+    "tips": {
+      "type": "string",
+      "description": "Additional tips and tricks"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL of the tool image"
+    }
+  },
+  "required": [
+    "name",
+    "category",
+    "difficulty"
+  ]
+}
