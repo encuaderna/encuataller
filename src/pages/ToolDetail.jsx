@@ -9,6 +9,7 @@ import DifficultyBadge from "@/components/tools/DifficultyBadge";
 import CategoryIcon, { categoryMap } from "@/components/tools/CategoryIcon";
 import MaterialsList from "@/components/tools/MaterialsList";
 import StepList from "@/components/tools/StepList";
+import CommonErrors from "@/components/tools/CommonErrors";
 
 export default function ToolDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -101,6 +102,14 @@ export default function ToolDetail() {
         </p>
         <StepList steps={tool.steps} />
       </div>
+
+      {/* Common errors */}
+      {tool.common_errors && tool.common_errors.length > 0 && (
+        <>
+          <hr className="border-border" />
+          <CommonErrors errors={tool.common_errors} />
+        </>
+      )}
 
       {/* Tips */}
       {tool.tips && (

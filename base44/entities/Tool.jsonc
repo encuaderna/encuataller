@@ -80,6 +80,23 @@
       },
       "description": "Step-by-step build instructions"
     },
+    "common_errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Description of the error"
+          },
+          "solution": {
+            "type": "string",
+            "description": "How to fix it"
+          }
+        }
+      },
+      "description": "Frequent mistakes and how to solve them"
+    },
     "tips": {
       "type": "string",
       "description": "Additional tips and tricks"
