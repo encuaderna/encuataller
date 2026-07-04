@@ -20,12 +20,10 @@ export default function ToolDetail() {
 
   const { currency } = useCurrency();
 
-  const { data: tools = [], isLoading } = useQuery({
+  const { data: tool, isLoading } = useQuery({
     queryKey: ["tool", toolId],
-    queryFn: () => base44.entities.Tool.filter({ id: toolId }),
+    queryFn: () => base44.entities.Tool.get(toolId),
   });
-
-  const tool = tools[0];
 
   if (isLoading) {
     return (
