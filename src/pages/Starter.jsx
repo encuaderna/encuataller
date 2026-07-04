@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { CheckCircle2, Circle, ChevronDown, ChevronUp, Lightbulb, AlertCircle } from "lucide-react";
+import { CheckCircle2, Circle, ChevronDown, ChevronUp, Lightbulb, AlertCircle, Printer } from "lucide-react";
 import { Link } from "react-router-dom";
+import PrintableStarter from "@/components/starter/PrintableStarter";
 
 const STARTER_KIT = [
   {
@@ -97,6 +98,7 @@ const NOT_NEEDED = [
 export default function Starter() {
   const [checked, setChecked] = useState(new Set());
   const [showNotNeeded, setShowNotNeeded] = useState(false);
+  const [showPrint, setShowPrint] = useState(false);
 
   const toggle = (id) => {
     setChecked((prev) => {
@@ -110,9 +112,20 @@ export default function Starter() {
 
   return (
     <div className="space-y-8 max-w-2xl mx-auto">
+      {showPrint && <PrintableStarter onClose={() => setShowPrint(false)} />}
+
       {/* Header */}
-      <div>
+      <div className="flex items-start justify-between gap-4 flex-wrap">
         <h1 className="text-2xl font-bold text-foreground mb-2">Kit mínimo para empezar</h1>
+        <button
+          onClick={() => setShowPrint(true)}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border bg-card hover:bg-muted text-sm font-medium text-foreground transition-colors flex-shrink-0"
+        >
+          <Printer className="w-4 h-4" />
+          Resumen imprimible
+        </button>
+      </div>
+      <div>
         <p className="text-sm text-muted-foreground leading-relaxed">
           Si estás comenzando en encuadernación, <strong>no necesitas comprar mucho</strong>. 
           Esta lista tiene solo lo imprescindible, con alternativas caseras para casi todo. 
