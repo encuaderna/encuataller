@@ -14,9 +14,7 @@ import CurrencySelector from "@/components/tools/CurrencySelector";
 import { useCurrency, convertCost } from "@/hooks/useCurrency";
 
 export default function ToolDetail() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const path = window.location.pathname;
-  const toolId = path.split("/").pop();
+  const toolId = window.location.pathname.split("/").pop();
 
   const { currency } = useCurrency();
 
@@ -47,7 +45,6 @@ export default function ToolDetail() {
     );
   }
 
-  const categoryLabel = categoryMap[tool.category]?.label || tool.category;
   const convertedCost = convertCost(tool?.estimated_cost, currency);
 
   return (
@@ -92,9 +89,12 @@ export default function ToolDetail() {
       <hr className="border-border" />
 
       {/* Materials */}
-      <MaterialsList materials={tool.materials} />
-
-      <hr className="border-border" />
+      {tool.materials && tool.materials.length > 0 && (
+        <>
+          <MaterialsList materials={tool.materials} />
+          <hr className="border-border" />
+        </>
+      )}
 
       {/* Steps */}
       <div>
