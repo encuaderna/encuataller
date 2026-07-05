@@ -5,7 +5,7 @@ const RATES = {
   USD: 1,
   EUR: 0.92,
   ARS: 1200,
-  CLP: 940,
+  CLP: 950,
   MXN: 17.5,
   COP: 4100,
   PEN: 3.75,

@@ -96,7 +96,14 @@ const NOT_NEEDED = [
 ];
 
 export default function Starter() {
-  const [checked, setChecked] = useState(new Set());
+  const [checked, setChecked] = useState(() => {
+    try {
+      const saved = localStorage.getItem("starter_checked");
+      return saved ? new Set(JSON.parse(saved)) : new Set();
+    } catch {
+      return new Set();
+    }
+  });
   const [showNotNeeded, setShowNotNeeded] = useState(false);
   const [showPrint, setShowPrint] = useState(false);
 
@@ -104,6 +111,7 @@ export default function Starter() {
     setChecked((prev) => {
       const next = new Set(prev);
       next.has(id) ? next.delete(id) : next.add(id);
+      localStorage.setItem("starter_checked", JSON.stringify([...next]));
       return next;
     });
   };
